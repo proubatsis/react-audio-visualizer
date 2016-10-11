@@ -1,7 +1,6 @@
 module.exports = {
-    entry: "./app.jsx",
+    entry: "./app/app.jsx",
     output: {
-        path: "./output",
         filename: "app.js"
     },
     module: {
