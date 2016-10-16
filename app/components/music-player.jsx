@@ -3,6 +3,8 @@ import React from "react";
 import PlayButton from "./play-button.jsx";
 import FileLoadButton from "./file-load-button.jsx";
 
+import Visualizer from "./visualizer.jsx";
+
 import Loader from "../loaders/local-loader.js";
 
 class MusicPlayer extends React.Component {
@@ -28,6 +30,7 @@ class MusicPlayer extends React.Component {
 
         return (
             <div>
+                <Visualizer audio={this.state.audio} />
                 <FileLoadButton fileChange={this.audioFileChange.bind(this)} />
                 {playButton}
             </div>
