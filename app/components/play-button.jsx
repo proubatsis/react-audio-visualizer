@@ -11,6 +11,15 @@ class PlayButton extends React.Component {
     }
 
     togglePlaying() {
+        if(this.props.audio) {
+            if(this.state.isPlaying) {
+                this.props.audio.pause();
+            }
+            else {
+                this.props.audio.play();
+            }
+        }
+
         this.setState({
             isPlaying: !this.state.isPlaying
         });

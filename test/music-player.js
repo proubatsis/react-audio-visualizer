@@ -1,12 +1,22 @@
 import React from "react";
-import { shallow } from "enzyme";
-import { expect } from "chai";
+import { mount } from "enzyme";
+import { assert } from "chai";
 
 import MusicPlayer from "../app/components/music-player.jsx";
+import PlayButton from "../app/components/play-button.jsx";
 
 describe("MusicPlayer", () => {
-    it("should say music player", () => {
-        const player = shallow(<MusicPlayer />);
-        expect(player.text()).to.equal("Music Player");
+    it("should initially hide the play button", () => {
+        const player = mount(<MusicPlayer />);
+        assert(!player.contains(<PlayButton audio={null} />));
+    });
+
+    it("should show the play button when audio is truthy", () => {
+        const player = mount(<MusicPlayer />);
+        player.setState({
+            audio: 123
+        });
+
+        assert(player.contains(<PlayButton audio={123} />));
     });
 });
