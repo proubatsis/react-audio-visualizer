@@ -6,7 +6,7 @@ class VisualizerButton extends React.Component {
     }
 
     clicked() {
-        this.props.visualizerSelect(this.props.visualizer);
+        this.props.visualizerSelect(this.props.visualizerName);
     }
 
     render() {

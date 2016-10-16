@@ -4,13 +4,14 @@ import { assert, expect } from "chai";
 import { spy } from "sinon";
 
 import VisualizerButton from "../app/components/visualizer-button.jsx";
-import BarVisualizer from "../app/visualizers/bar-visualizer.js";
 
 describe("Visualizer button", () => {
     it("should display given text", () => {
+        const cb = spy();
         const button = shallow(
             <VisualizerButton
                 visualizerName="Bar Visualizer"
+                visualizerSelect={cb}
             />
         );
 
@@ -31,12 +32,11 @@ describe("Visualizer button", () => {
         expect(cb.callCount).to.equal(1);
     });
 
-    it("should pass the given visualizer to visualizerSelect property", () => {
+    it("should pass the given visualizer name to visualizerSelect property", () => {
         const cb = spy();
         const button = shallow(
             <VisualizerButton
                 visualizerName="Bar Visualizer"
-                visualizer={BarVisualizer}
                 visualizerSelect={cb}
             />
         );
@@ -44,6 +44,6 @@ describe("Visualizer button", () => {
         expect(cb.callCount).to.equal(0);
         button.simulate("click");
         expect(cb.callCount).to.equal(1);
-        assert(cb.calledWith(BarVisualizer));
+        assert(cb.calledWith("Bar Visualizer"));
     });
 });
