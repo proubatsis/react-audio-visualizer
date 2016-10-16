@@ -16,14 +16,12 @@ class Visualizer extends React.Component {
         this.setState({
             effectInstance: new nextProps.effect(this.refs.visualizerCanvas)
         });
-    }
 
-    componentDidUpdate() {
         // Start the visualization when the audio property is not null
-        if(this.props.audio && this.props.audio instanceof window.Audio) {
+        if(this.props.audio != nextProps.audio && nextProps.audio && nextProps.audio instanceof window.Audio) {
             // Setup analyzer
             let actx = new AudioContext();
-            let asrc = actx.createMediaElementSource(this.props.audio);
+            let asrc = actx.createMediaElementSource(nextProps.audio);
             let analyzer = actx.createAnalyser();
 
             asrc.connect(analyzer);
