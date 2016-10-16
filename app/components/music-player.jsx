@@ -41,10 +41,11 @@ class MusicPlayer extends React.Component {
 
         return (
             <div>
-                <Visualizer audio={this.state.audio} effect={this.state.CurrentVisualizer} />
                 <FileLoadButton fileChange={this.audioFileChange.bind(this)} />
                 {playButton}
                 <VisualizerList selectionChanged={this.currentVisualizerChange.bind(this)} />
+                <br/>
+                <Visualizer audio={this.state.audio} effect={this.state.CurrentVisualizer} />
             </div>
         );
     }

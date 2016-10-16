@@ -17,7 +17,9 @@ class FileLoadButton extends React.Component {
         const btnStyles = {
             position: "relative",
             overflow: "hidden",
-            color: "#ff8b00"
+            color: "#ff8b00",
+            marginLeft: "0.5em",
+            marginRight: "0.5em"
         };
 
         const inputStyles = {

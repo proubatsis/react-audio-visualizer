@@ -35,7 +35,9 @@ class PlayButton extends React.Component {
 
         var btnStyles = {
             color: "#ff8b00",
-            cursor: "pointer"
+            cursor: "pointer",
+            marginLeft: "0.5em",
+            marginRight: "0.5em"
         };
 
         return (

@@ -44,7 +44,7 @@ class VisualizerList extends React.Component {
     render() {
         const elements = this.state.visualizers.map((v, i) => {
             return (
-                <li key={i}>
+                <li style={{display: "inline-block"}} key={i}>
                     <VisualizerButton
                         visualizerName={v.name}
                         visualizerSelect={this.selectionChanged.bind(this)}
@@ -54,7 +54,7 @@ class VisualizerList extends React.Component {
         });
 
         return (
-            <ul style={{listStyle: "none"}}>
+            <ul style={{listStyle: "none", display: "inline-block"}}>
                 {elements}
             </ul>
         );
