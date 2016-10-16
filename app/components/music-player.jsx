@@ -29,7 +29,7 @@ class MusicPlayer extends React.Component {
 
     currentVisualizerChange(visualizer) {
         this.setState({
-            audio: this.state.Audio,
+            audio: this.state.audio,
             CurrentVisualizer: visualizer
         });
     }
