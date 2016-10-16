@@ -12,32 +12,30 @@ class FileLoadButton extends React.Component {
         }
     }
 
+    fileButtonClicked() {
+        this.refs.fileInput.click();
+    }
+
     render() {
         const btnClasses = "fa fa-upload fa-4x";
         const btnStyles = {
-            position: "relative",
-            overflow: "hidden",
             color: "#ff8b00",
             marginLeft: "0.5em",
-            marginRight: "0.5em"
+            marginRight: "0.5em",
+            cursor: "pointer"
         };
 
         const inputStyles = {
-            position: "absolute",
-            top: 0,
-            right: 0,
-            margin: 0,
-            padding: 0,
-            cursor: "pointer",
-            height: "100%"
+            display: "none"
         };
 
         return (
-            <div className={btnClasses} style={btnStyles}>
+            <div className={btnClasses} style={btnStyles} onClick={this.fileButtonClicked.bind(this)}>
                 <input
                     type="file"
                     style={inputStyles}
                     onChange={this.handleFileChange.bind(this)}
+                    ref="fileInput"
                 />
             </div>
         );
