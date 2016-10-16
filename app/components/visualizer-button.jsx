@@ -17,9 +17,14 @@ class VisualizerButton extends React.Component {
             marginRight: "1em"
         };
 
+        const iconStyle = {
+            paddingRight: "0.25em",
+            color: this.props.selected ? "#ff8b00" : "#fff"
+        };
+
         return (
             <div style={btnStyle} onClick={this.clicked.bind(this)}>
-                <p><i style={{paddingRight: "0.25em"}} className="fa fa-circle"></i>{this.props.visualizerName}</p>
+                <p><i style={iconStyle} className="fa fa-circle"></i>{this.props.visualizerName}</p>
             </div>
         );
     }

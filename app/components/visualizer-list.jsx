@@ -48,6 +48,7 @@ class VisualizerList extends React.Component {
                     <VisualizerButton
                         visualizerName={v.name}
                         visualizerSelect={this.selectionChanged.bind(this)}
+                        selected={v.selected}
                     />
                 </li>
             );
