@@ -1,7 +1,8 @@
 import React from "react";
 import BarVisualizer from "../visualizers/bar-visualizer.js";
 
-const CANVAS_SCALE = 0.75;
+const CANVAS_SCALE_X = 0.95;
+const CANVAS_SCALE_Y = 0.8;
 
 class Visualizer extends React.Component {
     constructor(props) {
@@ -47,8 +48,8 @@ class Visualizer extends React.Component {
     }
 
     render() {
-        let cWidth = window.innerWidth * CANVAS_SCALE;
-        let cHeight = window.innerHeight * CANVAS_SCALE;
+        let cWidth = window.innerWidth * CANVAS_SCALE_X;
+        let cHeight = window.innerHeight * CANVAS_SCALE_Y;
 
         return (
             <canvas width={cWidth} height={cHeight} ref="visualizerCanvas">
