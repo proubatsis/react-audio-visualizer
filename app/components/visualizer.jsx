@@ -6,6 +6,16 @@ const CANVAS_SCALE = 0.75;
 class Visualizer extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            effectInstance: null
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            effectInstance: new nextProps.effect(this.refs.visualizerCanvas)
+        });
     }
 
     componentDidUpdate() {
@@ -21,13 +31,16 @@ class Visualizer extends React.Component {
             let spectrum = new Uint8Array(analyzer.frequencyBinCount);
 
             // Setup visualizer
-            let vis = new BarVisualizer(this.refs.visualizerCanvas);
+            let vis = new this.props.effect(this.refs.visualizerCanvas);
+            this.setState({
+                effectInstance: vis
+            });
 
             // Draw loop
             const draw = () => {
                 analyzer.getByteFrequencyData(spectrum);
 
-                vis.draw(spectrum);
+                this.state.effectInstance.draw(spectrum);
                 window.requestAnimationFrame(draw);
             };
 
