@@ -10,7 +10,7 @@ class Visualizer extends React.Component {
 
     componentDidUpdate() {
         // Start the visualization when the audio property is not null
-        if(this.props.audio) {
+        if(this.props.audio && this.props.audio instanceof window.Audio) {
             // Setup analyzer
             let actx = new AudioContext();
             let asrc = actx.createMediaElementSource(this.props.audio);
