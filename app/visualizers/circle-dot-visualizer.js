@@ -12,7 +12,8 @@ class CircleDotVisualizer extends Visualizer {
                 x: this.size.width / 2,
                 y: this.size.height / 2
             },
-            size: 5
+            size: 5,
+            multiplier: Math.sqrt(this.size.width * this.size.width + this.size.height * this.size.height) / 255 / 8
         };
     }
 

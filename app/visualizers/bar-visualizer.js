@@ -7,7 +7,7 @@ class BarVisualizer extends Visualizer {
         super(canvas);
 
         this.bar = {
-            multiplier: 1,
+            multiplier: this.size.height / 255 / 1.5,
             width: this.size.width / BAR_COUNT
         };
     }

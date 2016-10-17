@@ -1,5 +1,4 @@
 import React from "react";
-import BarVisualizer from "../visualizers/bar-visualizer.js";
 
 const CANVAS_SCALE_X = 0.95;
 const CANVAS_SCALE_Y = 0.8;
