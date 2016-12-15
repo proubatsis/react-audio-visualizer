@@ -23,4 +23,9 @@ const rotate = (angle, shape) => {
     return transformPoints(transformation, shape);
 };
 
-export default { create, scale, rotate };
+const translate = (x, y, shape) => {
+    const transformation = (p) => Vector.create(p.x + x, p.y + y);
+    return transformPoints(transformation, shape);
+};
+
+export default { create, scale, rotate, translate };

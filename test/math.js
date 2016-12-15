@@ -82,4 +82,18 @@ describe("Shape", () => {
 
         expect(expected).to.eql(actual);
     });
+
+    it("should translate a shape", () => {
+        let actual = Shape.create([Vector.create(0, 0), Vector.create(0, 3), Vector.create(7, 1)], "#0f0");
+        actual = Shape.translate(5, 2, actual);
+
+        let expected = {
+            points: [
+                Vector.create(5, 2),
+                Vector.create(5, 5),
+                Vector.create(13, 3)
+            ],
+            color: "#0f0"
+        };
+    });
 });
