@@ -23,27 +23,6 @@ const ONE_THIRD_SEGS = SEGMENTS / 3 + 1;
 const createSegment = (shape, moveDirection) => {
     return { shape, moveDirection };
 };
-//
-// const int ONE_THIRD_SEGS = SEGMENTS / 3 + 1;
-// float t = (i % ONE_THIRD_SEGS) / (float)ONE_THIRD_SEGS;
-// int r = 0, g = 0, b = 0;
-//
-// if(i < ONE_THIRD_SEGS)
-// {
-//     r = (int)interpolate(255, 0, t);
-//     g = (int)interpolate(0, 255, t);
-// }else if(i >= ONE_THIRD_SEGS && i < 2 * ONE_THIRD_SEGS)
-// {
-//     g = (int)interpolate(255, 0, t);
-//     b = (int)interpolate(0, 255, t);
-// }else
-// {
-//     b = (int)interpolate(255, 0, t);
-//     r = (int)interpolate(0, 255, t);
-// }
-//
-// float scale = sum * 100 + 0.1f;
-// return sf::Color((sf::Uint8)(r * scale), sf::Uint8(g * scale), sf::Uint8(b * scale));
 
 const getColor = (i, mag) => {
     const interpolate = (a, b, x) => (x * x * (3 - 2 * x)) * (b - a) + a;
@@ -54,17 +33,22 @@ const getColor = (i, mag) => {
     let b = 0;
 
     if(i < ONE_THIRD_SEGS) {
-        r = Math.floor(interpolate(255, 0, t));
-        g = Math.floor(interpolate(0, 255, t));
+        r = interpolate(255, 0, t);
+        g = interpolate(0, 255, t);
     }
     else if(i >= ONE_THIRD_SEGS && i < 2 * ONE_THIRD_SEGS) {
-        g = Math.floor(interpolate(255, 0, t));
-        b = Math.floor(interpolate(0, 255, t));
+        g = interpolate(255, 0, t);
+        b = interpolate(0, 255, t);
     }
     else {
-        b = Math.floor(interpolate(255, 0, t));
-        r = Math.floor(interpolate(0, 255, t));
+        b = interpolate(255, 0, t);
+        r = interpolate(0, 255, t);
     }
+
+    const scale = mag / SCALE * 8;
+    r = Math.floor(scale * r);
+    g = Math.floor(scale * g);
+    b = Math.floor(scale * b);
 
     return `rgba(${r}, ${g}, ${b}, 1.0)`;
 };
