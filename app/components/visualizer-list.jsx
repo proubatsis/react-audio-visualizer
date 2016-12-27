@@ -3,6 +3,7 @@ import VisualizerButton from "./visualizer-button.jsx";
 
 import BarVisualizer from "../visualizers/bar-visualizer.js";
 import CircleDotVisualizer from "../visualizers/circle-dot-visualizer.js";
+import PieVisualizer from "../visualizers/pie-visualizer.js";
 
 const vState = (name, visualizer, selected = false) => {
     return {
@@ -19,7 +20,8 @@ class VisualizerList extends React.Component {
         this.state = {
             visualizers: [
                 vState("Bar", BarVisualizer, true),
-                vState("Circle Dot", CircleDotVisualizer)
+                vState("Circle Dot", CircleDotVisualizer),
+                vState("Pie", PieVisualizer)
             ]
         };
     }

@@ -28,4 +28,9 @@ const translate = (x, y, shape) => {
     return transformPoints(transformation, shape);
 };
 
-export default { create, scale, rotate, translate };
+const setPosition = (x, y, shape) => {
+    const origin = shape.points[0];
+    return translate(x - origin.x, y - origin.y, shape);
+};
+
+export default { create, scale, rotate, translate, setPosition };

@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import Vector from "../app/math/vector.js";
 import Shape from "../app/math/shape.js";
+import Util from "../app/math/util.js";
 
 describe("Vector", () => {
     it("should create a vector", () => {
@@ -91,9 +92,36 @@ describe("Shape", () => {
             points: [
                 Vector.create(5, 2),
                 Vector.create(5, 5),
-                Vector.create(13, 3)
+                Vector.create(12, 3)
             ],
             color: "#0f0"
         };
+
+        expect(expected).to.eql(actual);
+    });
+
+    it("should set a shape's position", () => {
+        let actual = Shape.create([Vector.create(1, 0), Vector.create(0, 3), Vector.create(7, 1)], "#0f0");
+        actual = Shape.setPosition(2, 2, actual);
+
+        let expected = {
+            points: [
+                Vector.create(2, 2),
+                Vector.create(1, 5),
+                Vector.create(8, 3)
+            ],
+            color: "#0f0"
+        };
+
+        expect(expected).to.eql(actual);
+    });
+});
+
+describe("Util", () => {
+    it("should sum an array from the given index up to the given length", () => {
+        let array = [ 1, 3, 2, 7, 4 ];
+        const expected = 12;
+        const actual = Util.arraySum(array, 1, 3);
+        expect(expected).to.eql(actual);
     });
 });
